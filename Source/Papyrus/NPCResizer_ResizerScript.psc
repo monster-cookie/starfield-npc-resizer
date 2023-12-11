@@ -5,6 +5,7 @@ Scriptname NPCResizer_ResizerScript extends ActiveMagicEffect
 ;;; Global Variables
 ;;;
 GlobalVariable Property Venpi_DebugEnabled Auto Const Mandatory
+String Property Venpi_ModName Auto Const Mandatory
 
 GlobalVariable Property NPCResizer_Enabled Auto Const Mandatory
 GlobalVariable Property NPCResizer_UseEasterEggMode Auto Const Mandatory
@@ -31,7 +32,7 @@ Actor Property RealMe Auto
 ;;;
 
 Event OnEffectStart(ObjectReference akTarget, Actor akCaster, MagicEffect akBaseEffect, Float afMagnitude, Float afDuration)
-  ; VPI_Debug.DebugMessage("NPCResizer_ResizerScript", "OnEffectStart", "OnEffectStart triggered", 0, Venpi_DebugEnabled.GetValueInt())
+  ; VPI_Debug.DebugMessage(Venpi_ModName, "NPCResizer_ResizerScript", "OnEffectStart", "OnEffectStart triggered", 0, Venpi_DebugEnabled.GetValueInt())
   If (akTarget == None)
     Return
   EndIf
@@ -49,12 +50,12 @@ Event OnEffectStart(ObjectReference akTarget, Actor akCaster, MagicEffect akBase
   If (NPCResizer_Enabled.GetValueInt() == 1)
     HandleHeightScaling()
   Else
-    VPI_Debug.DebugMessage("NPCResizer_ResizerScript", "OnEffectStart", "NPC Height Resizing is currently disabled.", 0, Venpi_DebugEnabled.GetValueInt())
+    VPI_Debug.DebugMessage(Venpi_ModName, "NPCResizer_ResizerScript", "OnEffectStart", "NPC Height Resizing is currently disabled.", 0, Venpi_DebugEnabled.GetValueInt())
   EndIf
 EndEvent
 
 Event OnEffectFinish(ObjectReference akTarget, Actor akCaster, MagicEffect akBaseEffect, Float afMagnitude, Float afDuration)
-  ; VPI_Debug.DebugMessage("NPCResizer_ResizerScript", "OnEffectFinish", "OnEffectFinish triggered", 0, Venpi_DebugEnabled.GetValueInt())
+  ; VPI_Debug.DebugMessage(Venpi_ModName, "NPCResizer_ResizerScript", "OnEffectFinish", "OnEffectFinish triggered", 0, Venpi_DebugEnabled.GetValueInt())
 EndEvent
 
 
@@ -81,10 +82,10 @@ Function HandleHeightScaling()
       newScaleMax = 3.00
     EndIf
 
-    VPI_Debug.DebugMessage("NPCResizer_ResizerScript", "HandleHeightScaling", "NPC Easter Egg mode is enabled so min sacle is now " + newScaleMin + " and max scale is now " + newScaleMax, 0, Venpi_DebugEnabled.GetValueInt())
+    VPI_Debug.DebugMessage(Venpi_ModName, "NPCResizer_ResizerScript", "HandleHeightScaling", "NPC Easter Egg mode is enabled so min sacle is now " + newScaleMin + " and max scale is now " + newScaleMax, 0, Venpi_DebugEnabled.GetValueInt())
   EndIf
 
   newScale = Utility.RandomFloat(newScaleMin, newScaleMax)
-  VPI_Debug.DebugMessage("NPCResizer_ResizerScript", "HandleHeight", Myself + "> NPC is being rescaled to " + newScale + ".", 0, Venpi_DebugEnabled.GetValueInt())
+  VPI_Debug.DebugMessage(Venpi_ModName, "NPCResizer_ResizerScript", "HandleHeight", Myself + "> NPC is being rescaled to " + newScale + ".", 0, Venpi_DebugEnabled.GetValueInt())
   RealMe.SetScale(newScale)
 EndFunction

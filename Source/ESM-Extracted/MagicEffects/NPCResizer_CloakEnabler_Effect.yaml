@@ -1,0 +1,12 @@
+FormKey: 00080C:NPCResizer.esm
+EditorID: NPCResizer_CloakEnabler_Effect
+Name:
+  TargetLanguage: English
+  Value: CloakEffect
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 00080E:NPCResizer.esm
+Flags:
+- NoHitEvent
+- HideInUI
+Unknown: 0x00000000000000000000000000000000000000000000

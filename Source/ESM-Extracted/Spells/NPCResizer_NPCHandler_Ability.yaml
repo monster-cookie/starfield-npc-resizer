@@ -1,0 +1,13 @@
+FormKey: 000811:NPCResizer.esm
+EditorID: NPCResizer_NPCHandler_Ability
+Name:
+  TargetLanguage: English
+  Value: ActorSpell
+Description:
+  TargetLanguage: English
+  Value: ''
+Type:
+- Ability
+Effects:
+- BaseEffect: 00080D:NPCResizer.esm
+  Data: {}
