@@ -5,7 +5,7 @@ ScriptName NPCResizer_ConfigTerminalScript Extends ActiveMagicEffect
 ;;; Global Variables
 ;;;
 GlobalVariable Property Venpi_DebugEnabled Auto Const Mandatory
-String Property Venpi_ModName Auto Const Mandatory
+String Property Venpi_ModName="ResizeTheWorld" Auto Const Mandatory
 
 GlobalVariable Property NPCResizer_Enabled Auto Const Mandatory
 GlobalVariable Property NPCResizer_UseEasterEggMode Auto Const Mandatory

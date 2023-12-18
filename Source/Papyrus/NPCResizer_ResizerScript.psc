@@ -5,7 +5,7 @@ Scriptname NPCResizer_ResizerScript extends ActiveMagicEffect
 ;;; Global Variables
 ;;;
 GlobalVariable Property Venpi_DebugEnabled Auto Const Mandatory
-String Property Venpi_ModName Auto Const Mandatory
+String Property Venpi_ModName="ResizeTheWorld" Auto Const Mandatory
 
 GlobalVariable Property NPCResizer_Enabled Auto Const Mandatory
 GlobalVariable Property NPCResizer_UseEasterEggMode Auto Const Mandatory
@@ -68,6 +68,11 @@ Function HandleHeightScaling()
   Float newScaleMin = NPCResizer_ScalingMin.GetValue()
   Float newScaleMax = NPCResizer_ScalingMax.GetValue()
   Float newScale = currentScale
+
+  If (currentScale != 1)
+    VPI_Debug.DebugMessage(Venpi_ModName, "NPCResizer_ResizerScript", "HandleHeight", Myself + "> NPC is has already been scaled by another mod. Current scale is  " + currentScale + " so aborting.", 0, Venpi_DebugEnabled.GetValueInt())
+    Return
+  EndIf
 
   If (NPCResizer_UseEasterEggMode.GetValueInt() == 1)
     newScaleMin = newScaleMin/2
