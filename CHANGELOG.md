@@ -1,5 +1,8 @@
 # V1.0 Permutations
 
+## V1.0.4
+* Fixing bug that was causing empty user log files to be created
+
 ## V1.0.3
 * Will no longer resize NPC if the current scale is no longer 1
 
